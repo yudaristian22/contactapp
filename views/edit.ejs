@@ -1,0 +1,110 @@
+<%- include ('layout/header') %>
+<div class="container">
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+          <div class="card shadow">
+            <div class="card-header bg-success">
+              <h4 class="text-light">Edit User (<%= user.name %>)</h4>
+            </div>
+            <div class="card-body p-4">
+              <form
+                action="/update/<%= user._id %>"
+                method="post"
+                id="add-form"
+                enctype="multipart/form-data"
+              >
+                <div class="mb-3">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    class="form-control form-control-lg"
+                    placeholder="Enter name"
+                    value="<%= user.name %>"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email">Email</label>
+                  <input
+                    type="text"
+                    name="email"
+                    class="form-control form-control-lg"
+                    placeholder="Enter Email"
+                    value="<%= user.email %>"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="phone">Phone</label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    class="form-control form-control-lg"
+                    placeholder="Enter Phone"
+                    value="<%= user.phone %>"
+                    required
+                  />
+                  <div class="mb-3">
+                    <label for="birthdate">Date of Birth</label>
+                    <input
+                      type="date"
+                      name="birthdate"
+                      class="form-control form-control-lg"
+                      value="<%= user.birthdate %>"
+                      required
+                    />
+                  </div>                  
+                </div>
+                <div class="mb-3">
+                  <label for="gender">Gender</label>
+                  <select
+                    name="gender"
+                    class="form-select form-select-lg"
+                    value="<%= user.gender%>"
+                    required
+                  >
+                  <option value="Male" <%= user.gender === 'Male' ? 'selected' : '' %>>Male</option>
+                  <option value="Female" <%= user.gender === 'Female' ? 'selected' : '' %>>Female</option>
+                  <option value="Other" <%= user.gender === 'Other' ? 'selected' : '' %>>Other</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="city">City</label>
+                  <input
+                    type="text"
+                    name="city"
+                    class="form-control form-control-lg"
+                    placeholder="Enter City"
+                    value="<%= user.city %>"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="bio">Bio</label>
+                  <textarea
+                    name="bio"
+                    class="form-control form-control-lg"
+                    placeholder="Enter Bio"
+                    required
+                  ><%= user.bio  %></textarea>
+                </div>
+                <div class="mb-3 d-grid">
+                  <input
+                    type="submit"
+                    name="submit"
+                    value="Update User"
+                    class="btn btn-primary btn-success"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include ('layout/footer') %>
